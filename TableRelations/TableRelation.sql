@@ -1,0 +1,21 @@
+
+CREATE TABLE Country
+(
+   Id INT IDENTITY NOT NULL PRIMARY KEY,
+   [Name] NVARCHAR(50) NOT NULL UNIQUE
+);
+CREATE TABLE Mountains
+(
+   Id INT IDENTITY NOT NULL PRIMARY KEY,
+   [Name] NVARCHAR(100) NOT NULL
+);
+CREATE TABLE Peaks
+(
+   Id INT IDENTITY NOT NULL PRIMARY KEY,
+   [Name] NVARCHAR(100) NOT NULL,
+   MountainId INT NOT NULL,
+   -- Reference to Mountains(Id)--
+   CONSTRAINT FK_Peaks_Mountains
+		FOREIGN KEY(MountainId)
+		REFERENCES Mountains(Id)
+)
