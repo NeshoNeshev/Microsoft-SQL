@@ -64,13 +64,13 @@ SELECT Salary FROM Employees
 SELECT PeakName FROM Peaks
 	ORDER BY PeakName ASC
 --23--
-SELECT CountryName, [Population] FROM Countries
+SELECT TOP(30) CountryName, [Population] FROM Countries
 	WHERE ContinentCode = 'EU'
-	ORDER BY Population DESC
+	ORDER BY [Population] DESC, CountryName ASC
 --24--
 SELECT CountryName, CountryCode,
 	CASE
-		WHEN CurrencyCode ='EUR' THEN 'EURO'
+		WHEN CurrencyCode ='EUR' THEN 'Euro'
 		ELSE 'Not Euro'
 	END AS [Currency]
 FROM Countries
