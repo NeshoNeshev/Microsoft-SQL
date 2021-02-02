@@ -1,4 +1,5 @@
-SELECT DepartmentID, MAX(Salary) FROM Employees
-	WHERE Salary < 30000 OR Salary> 70000
-		GROUP BY DepartmentID
+SELECT e.DepartmentID, MAX(e.Salary) AS MaxSalary
+    FROM Employees AS e
+    	GROUP BY e.DepartmentID
+   		 HAVING MAX(e.Salary) NOT BETWEEN 30000 AND 70000
 		
