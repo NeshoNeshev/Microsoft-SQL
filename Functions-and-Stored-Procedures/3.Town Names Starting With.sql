@@ -1,8 +1,8 @@
-CREATE PROCEDURE usp_GetTownsStartingWith(@string NVARCHAR(50))
+CREATE  PROCEDURE usp_GetTownsStartingWith(@string NVARCHAR(MAX))
 AS
-SELECT [Name]
-    FROM Towns 
-    WHERE [Name] LIKE @string
+SELECT t.Name
+    FROM Towns AS t
+    WHERE t.Name LIKE @string + '%'
 GO
 
 EXEC usp_GetTownsStartingWith 'B'
